@@ -11,4 +11,13 @@
          <script src="/backbone.js"></script>
          <script src="/app.js"></script>
    </body>
+
+   <script>
+      var postRouter = new PostRouter({
+         posts: new Posts(<%- posts %>),
+         main: $('#main')
+      });
+
+      Backbone.history.start({pushState: true});
+   </script>
 </html>

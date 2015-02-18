@@ -20,16 +20,14 @@ app.get("/posts", function (req, res) {
 
 //posts a post to the server
 app.post("/posts", function (req, res) {
-        posts.insert(req.body, function (err, result) {
+        posts.insert(req.body, function (result) {
                 res.json(result);
         });
 });
 
 //gets the index page of the application, put last to default to this location if nothing elseis found
 app.get('/*', function (req, res) {
-   posts.find(function (err, results) {
-      res.render("index.ejs", { posts: JSON.stringify(results) });
-   });
+        res.render("index.ejs");
 });
 
 
